@@ -39,7 +39,7 @@ export default function AdminProperties() {
       const res = await fetch(`https://ivrbgxkwsedorlscrruf.supabase.co/functions/v1/invite-owner`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
-        body: JSON.stringify({ email: newOwnerEmail, full_name: newOwnerName }),
+        body: JSON.stringify({ email: newOwnerEmail, full_name: newOwnerName, redirect_to: window.location.origin }),
       })
       const json = await res.json()
       if (!res.ok) throw new Error(json.error || "Erreur lors de l'invitation")
